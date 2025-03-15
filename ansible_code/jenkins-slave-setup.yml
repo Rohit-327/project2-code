@@ -1,0 +1,12 @@
+---
+- name: jenkins slave setup using ansible
+  hosts: jenkins-slave
+  become: true
+  tasks: 
+    - name: yum install java 17
+      yum: 
+        name: java-17-amazon-corretto
+        state: present
+    - name: install maven 
+      get_url:
+        url: 
